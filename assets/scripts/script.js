@@ -1,4 +1,5 @@
-let headlines = [];
+const headlinesGuardian = [];
+const headlinesNYT = [];
 
 // Function to call searchGuardian and SearchNYT
 
@@ -30,14 +31,14 @@ $.ajax({
 
     for (let i = 0; i < 10; i++) {
 
-        headlines.push(response.response.results[i].webTitle);
+        headlinesGuardian.push(response.response.results[i].webTitle);
         
 
         
 
                      //Then calls NTY Ajax function
 
-    }console.log(headlines);
+    }console.log(headlinesGuardian);
 });
 
 
@@ -62,8 +63,8 @@ $.ajax({
 }
 function populateResults() {
     
-    console.log(headlines);
-    $('#Guardian-Headlines').text(headlines);
+    console.log(headlinesGuardian);
+    $('#Guardian-Headlines').text(headlinesGuardian);
     // headlines.forEach(element => {
     //     $('#Guardian-Headlines').text(element);
     // });
