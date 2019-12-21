@@ -1,9 +1,14 @@
-const headline = [];
+let headlines = [];
+
 // Function to call searchGuardian and SearchNYT
+
+
+
 function searchButton() {
     let searchTerm = $('#searchBar').val();
     searchGuardian(searchTerm);
     searchNYT(searchTerm);
+    
 }
 
 
@@ -25,14 +30,14 @@ $.ajax({
 
     for (let i = 0; i < 10; i++) {
 
-        headline.push(response.response.results[i].webTitle);
+        headlines.push(response.response.results[i].webTitle);
         
 
         
 
                      //Then calls NTY Ajax function
 
-    }console.log(headline);
+    }console.log(headlines);
 });
 
 
@@ -51,11 +56,18 @@ $.ajax({
 }).then(function(response) {
   console.log(response);
     console.log(response.Runtime);
-    return headline;
+    populateResults();
 });
 
 }
-
+function populateResults() {
+    
+    console.log(headlines);
+    $('#Guardian-Headlines').text(headlines);
+    // headlines.forEach(element => {
+    //     $('#Guardian-Headlines').text(element);
+    // });
+}
 
 $(document).ready(function () {
     $('#searchButton').click(searchButton);
