@@ -3,6 +3,7 @@ const headline = [];
 function searchButton() {
     let searchTerm = $('#searchBar').val();
     searchGuardian(searchTerm);
+    searchNYT(searchTerm);
 }
 
 
@@ -27,11 +28,11 @@ $.ajax({
         headline.push(response.response.results[i].webTitle);
         
 
-        console.log(headline);
+        
 
-        searchNYT(term);                //Then calls NTY Ajax function
+                     //Then calls NTY Ajax function
 
-    }
+    }console.log(headline);
 });
 
 
