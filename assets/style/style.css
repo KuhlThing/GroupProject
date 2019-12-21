@@ -3,3 +3,46 @@
     width:100%;
 }
 
+body {
+    background-color: gray;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#newsSource1 {
+    background-color: lightgray;
+    size: auto; 
+    color:black;
+}
+
+#newsSource2 {
+    border-left: 3px solid #343a40;
+    background-color: lightgray;
+    size: auto;
+    color: black;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    justify-content: center;
+    left: 0;
+    right: 0;
+}
+
+#newsButton1 {
+    height: 50px;
+}
+
+#newsButton2 {
+    height: 50px;
+}
+
+.text-muted {
+    display: inline;
+    margin: auto;
+
+}
