@@ -1,0 +1,23 @@
+#iRule {
+    height:6px;
+    width:100%;
+}
+
+body {
+    background-color: gray;
+    color: white;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#newsSource1 {
+    background-color: lightgray;
+    size: auto; 
+    color:black;
+}
+
+#newsSource2 {
+    border-left: 3px solid #343a40;
+    background-color: lightgray;
+    size: auto;
+    color: black;
+}
