@@ -14,7 +14,8 @@ $.ajax({
 
     for (var i = 0; i < 10; i++) {
 
-        var foo = response.response.results[i].webTitle
+        var headline = response.response.results[i].webTitle
+        
 
         console.log(foo);
 
