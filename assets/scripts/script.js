@@ -16,35 +16,50 @@ function searchButton() {
 
 // Function to make AJAX call to The Guardian
 
+
 function searchGuardian(searchTerm) {
 
 let queryURL = 'https://content.guardianapis.com/search?q=' + searchTerm + '&api-key=eea751dd-bcde-4212-9e2e-0b0f669651bb'
+=======
 
 
 
-             //This must be fixed
+function searchGuardian(searchTerm) {
 
+    let queryURL = 'https://content.guardianapis.com/search?q=' + searchTerm + '&api-key=eea751dd-bcde-4212-9e2e-0b0f669651bb'
+    
+    
+    
+    
+    
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
 
-$.ajax({
-    url: queryURL,
-    method: "GET"
-}).then(function (response) {
+    
+    
+        for (let i = 0; i < 10; i++) {
+    
+            headlinesGuardian.push(response.response.results[i].webTitle);
+            headlinesGuardian.push(response.response.results[i].webUrl);
 
-    for (let i = 0; i < 10; i++) {
-
-        headlinesGuardian.push(response.response.results[i].webTitle);
+            
+            // console.log(response.response.results[0]);
+    
+            console.log(response.response.results[i].webTitle);
+            console.log(response.response.results[i].webUrl);
+    
+                         //Then calls NTY Ajax function
+    
+        }
         
-
-        
-
-                     //Then calls NTY Ajax function
-
-    }console.log(headlinesGuardian);
-});
-
-
-}
-
+        // console.log(headlinesGuardian);
+    });
+    
+    
+    }
+    
 
 function searchNYT(term) {
 //basic ajax call for NYT
