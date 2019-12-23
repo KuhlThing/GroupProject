@@ -1,12 +1,13 @@
 const headlinesGuardian = [];
 const headlinesNYT = [];
+var searchTerm = $('#searchBar').val();
+
 
 // Function to call searchGuardian and SearchNYT
 
 
 
 function searchButton() {
-    let searchTerm = $('#searchBar').val();
     searchGuardian(searchTerm);
     searchNYT(searchTerm);
     
@@ -15,9 +16,9 @@ function searchButton() {
 
 // Function to make AJAX call to The Guardian
 
-function searchGuardian(term) {
+function searchGuardian(searchTerm) {
 
-let queryURL = 'https://content.guardianapis.com/search?q=' + term + '&api-key=eea751dd-bcde-4212-9e2e-0b0f669651bb'
+let queryURL = 'https://content.guardianapis.com/search?q=' + searchTerm + '&api-key=eea751dd-bcde-4212-9e2e-0b0f669651bb'
 
 
 
@@ -47,14 +48,16 @@ $.ajax({
 
 function searchNYT(term) {
 //basic ajax call for NYT
-let queryNYT = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + term + "&api-key=hecyDdGxE109y5e3hVzDPM4SnT9zYj30";
+let queryNYT = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + "&api-key=hecyDdGxE109y5e3hVzDPM4SnT9zYj30";
 
 
-// need to change "var searchTerm" to whatever the call for the search function is.
 $.ajax({
   url: queryNYT,
   method: "GET"
-}).then(function(response) {
+}).then(function (response) {
+    for (i = 0; i < 10; i++) {
+        // headlinesNYT.push(response.response.results[i].webTitle);
+    }console.log(headlinesNYT);
     populateResults();
 });
 
