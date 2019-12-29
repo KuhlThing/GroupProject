@@ -1,3 +1,8 @@
+*html{
+    box-sizing: content-box;
+    width: 100%;
+}
+
 #iRule {
     height:6px;
     width:100%;
@@ -5,20 +10,18 @@
 
 body {
     background-color: gray;
-    color: white;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: black;
+    font-family: 'Aleo', serif;
 }
 
 #newsSource1 {
-    background-color: lightgray;
-    size: auto; 
+    background: lightgray;
     color:black;
 }
 
 #newsSource2 {
     border-left: 3px solid #343a40;
-    background-color: lightgray;
-    size: auto;
+    background: lightgray;
     color: black;
 }
 
@@ -27,22 +30,25 @@ footer {
     bottom: 0;
     width: 100%;
     height: 60px;
-    line-height: 60px;
-    justify-content: center;
-    left: 0;
-    right: 0;
+    text-align: center;
 }
 
 #newsButton1 {
     height: 50px;
+    
 }
 
 #newsButton2 {
     height: 50px;
+    
 }
 
 .text-muted {
     display: inline;
     margin: auto;
 
+}
+
+#websiteName {
+    font-family: 'Bungee Inline', cursive;
 }
