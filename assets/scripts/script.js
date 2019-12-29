@@ -1,11 +1,11 @@
 const headlinesGuardian = [];
+const URLsGuardian = [];
 const headlinesNYT = [];
 var searchTerm = $('#searchBar').val();
 
 
-// Function to call searchGuardian and SearchNYT
 
-
+// Search Button function that calls both AJAX functions
 
 function searchButton() {
     searchGuardian(searchTerm);
@@ -14,17 +14,18 @@ function searchButton() {
 }
 
 
+
+
+
+
 // Function to make AJAX call to The Guardian
-
-
 
 function searchGuardian(searchTerm) {
 
-    let queryURL = 'https://content.guardianapis.com/search?q=' + searchTerm + '&api-key=eea751dd-bcde-4212-9e2e-0b0f669651bb'
+    let queryURL = 'https://content.guardianapis.com/search?q=' + searchTerm + '&editions?q=uk&api-key=eea751dd-bcde-4212-9e2e-0b0f669651bb'
 
 
-
-
+   
 
     $.ajax({
         url: queryURL,
@@ -32,31 +33,29 @@ function searchGuardian(searchTerm) {
     }).then(function (response) {
 
 
+        for (let i = 0; i < 10; i++) {      
+            
+            // For Loop creates 10 results, each including the headline and the URL.
+            // Results are pushed into an array
 
-        for (let i = 0; i < 10; i++) {
-
-            headlinesGuardian.push(response.response.results[i].webTitle);
-            headlinesGuardian.push(response.response.results[i].webUrl);
-
-
-            // console.log(response.response.results[0]);
+            headlinesGuardian.push(response.response.results[i].webTitle);      
+            URLsGuardian.push(response.response.results[i].webUrl);        
 
             console.log(response.response.results[i].webTitle);
             console.log(response.response.results[i].webUrl);
-
-            //Then calls NTY Ajax function
-
         }
 
-        // console.log(headlinesGuardian);
     });
-
 
 }
 
 
+
+
+// Funtion to make AJAX call to New York Times
+
 function searchNYT(searchTerm) {
-    //basic ajax call for NYT
+
     let queryNYT = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + "&api-key=hecyDdGxE109y5e3hVzDPM4SnT9zYj30";
 
 
@@ -68,21 +67,27 @@ function searchNYT(searchTerm) {
 
             console.log('NYT: ' + response);
         }
-        // console.log(headlinesNYT);
 
-        populateResults();
+
+
+        populateResults();          // Function to populate results is called within the NYT Ajax function
+
     });
 
 }
-function populateResults() {
 
-    // console.log(headlinesGuardian);
+
+
+
+// Function to populate search results on the HTML page
+
+function populateResults() {
 
     for (j = 0; j < headlinesGuardian.length; j++) {
 
-        $("#Guardian-Headlines").append('<p>');
-        $('#Guardian-Headlines').append(headlinesGuardian[j]);
-        $("#Guardian-Headlines").append('</p>');
+        //For Loop renders search results arrays by using headline as link title, URL as link source
+
+        $('#Guardian-Headlines').append('<p><a href=' + URLsGuardian[j] + '>' + headlinesGuardian[j] + '</a></p>');
 
 
     }
@@ -92,6 +97,11 @@ function populateResults() {
     //     $('#Guardian-Headlines').text(element);
     // });
 }
+
+
+
+
+// Function to ensure document is ready before calling functions, and event listener on search button
 
 $(document).ready(function () {
     $('#searchButton').click(searchButton);
