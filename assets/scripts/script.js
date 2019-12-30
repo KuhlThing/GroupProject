@@ -3,6 +3,20 @@ const headlinesNYT = [];
 var searchTerm = $('#searchBar').val();
 
 
+
+
+
+
+
+$(document).ready(function () {
+    $('#searchButton').click(searchButton);
+});
+
+
+
+
+
+
 // Function to call searchGuardian and SearchNYT
 
 
@@ -92,7 +106,3 @@ function populateResults() {
     //     $('#Guardian-Headlines').text(element);
     // });
 }
-
-$(document).ready(function () {
-    $('#searchButton').click(searchButton);
-});
