@@ -20,11 +20,14 @@ body {
 }
 
 #newsSource2 {
-    border-left: 3px solid #343a40;
     background: lightgray;
     color: black;
 }
 
+.vl {
+    border-left: 6px solid #343a40;
+    
+}
 footer {
     position: absolute;
     bottom: 0;
