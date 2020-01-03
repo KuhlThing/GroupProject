@@ -23,12 +23,16 @@ body {
 
 #newsSource1 {
     background: lightgray;
+    opacity: .5;
     color:black;
+    border-radius: 10px;
 }
 
 #newsSource2 {
     background: lightgray;
+    opacity: .5;
     color: black;
+    border-radius: 10px;
 }
 
 .vl {
@@ -45,12 +49,13 @@ footer {
 
 #newsButton1 {
     height: 50px;
+    border-radius: 10px;
     
 }
 
 #newsButton2 {
     height: 50px;
-    
+    border-radius: 10px;
 }
 
 .text-muted {
