@@ -4,9 +4,11 @@ const headlinesNYT = [];
 
 // Search Button function that calls both AJAX functions
 function searchButton() {
+    displayStreetFighterScene();
     var searchTerm = $('#searchBar').val();
-    searchGuardian(searchTerm);
-    searchNYT(searchTerm);
+    setTimeout(searchGuardian(searchTerm), 1500);
+    setTimeout(searchNYT(searchTerm), 1500);
+    
 
 }
 
@@ -59,7 +61,10 @@ function searchNYT(searchTerm) {
 function populateResults() {
     for (j = 0; j < headlinesGuardian.length; j++) {
         //For Loop renders search results arrays by using headline as link title, URL as link source
-        $('#Guardian-Headlines').append('<p><a href=' + URLsGuardian[j] + '>' + headlinesGuardian[j] + '</a></p>');
+
+        $('#newsSource2').append('<p><a href=' + URLsGuardian[j] + '>' + headlinesGuardian[j] + '</a></p>');
+
+
     }
 
     // headlines.forEach(element => {
@@ -67,7 +72,17 @@ function populateResults() {
     // });
 }
 
+function displayStreetFighterScene() {
+    $('#street-fighter-gif').show();
+    setTimeout(function () {
+        $('#street-fighter-gif').hide()
+    }, 500);
+
+}
+
+
 // Function to ensure document is ready before calling functions, and event listener on search button
 $(document).ready(function () {
     $('#searchButton').click(searchButton);
+    $('#street-fighter-gif').hide();
 });
