@@ -106,7 +106,7 @@ function displayStreetFighterScene() {
     $('#street-fighter-gif').show();
     setTimeout(function () {
         $('#street-fighter-gif').hide()
-    }, 1500);
+    }, 500);
 
 }
 
