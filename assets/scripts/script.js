@@ -10,8 +10,8 @@ const headlinesNYT = [];
 function searchButton() {
     displayStreetFighterScene();
     var searchTerm = $('#searchBar').val();
-    searchGuardian(searchTerm);
-    searchNYT(searchTerm);
+    setTimeout(searchGuardian(searchTerm), 1500);
+    setTimeout(searchNYT(searchTerm), 1500);
     
 
 }
@@ -105,8 +105,8 @@ function populateResults() {
 function displayStreetFighterScene() {
     $('#street-fighter-gif').show();
     setTimeout(function () {
-        $('#street-fighter-gif').hide();
-    }, 3000);
+        $('#street-fighter-gif').hide()
+    }, 1500);
 
 }
 
