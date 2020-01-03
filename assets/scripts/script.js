@@ -1,6 +1,7 @@
 const headlinesGuardian = [];
 const URLsGuardian = [];
 const headlinesNYT = [];
+const URLsNYT = [];
 
 // Search Button function that calls both AJAX functions
 function searchButton() {
@@ -8,7 +9,7 @@ function searchButton() {
     var searchTerm = $('#searchBar').val();
     setTimeout(searchGuardian(searchTerm), 1500);
     setTimeout(searchNYT(searchTerm), 1500);
-    
+
 
 }
 
@@ -47,10 +48,15 @@ function searchNYT(searchTerm) {
     }).then(function (response) {
         for (i = 0; i < 10; i++) {
 
-            console.log("URL: " + queryNYT);
+
+            headlinesNYT.push(response.response.docs[i].headline.main);
+            URLsNYT.push(response.response.docs[i].web_url);
+
+            // console.log("URL: " + queryNYT);
             console.log(response.response.docs[i].headline.main);
+            console.log(response.response.docs[i].web_url)
             // console.log('NYT: ', response[i]);
-            console.log(queryNYT);
+            // console.log(queryNYT);
             // console.log('NYT: ' + response.headline);
         }
         populateResults();          // Function to populate results is called within the NYT Ajax function
@@ -67,9 +73,11 @@ function populateResults() {
 
     }
 
-    // headlines.forEach(element => {
-    //     $('#Guardian-Headlines').text(element);
-    // });
+    for (k = 0; k < headlinesNYT.length; k++) {
+
+        $('#newsSource1').append('<p><a href=' + URLsNYT[k] + '>' + headlinesNYT[k] + '</a></p>');
+    }
+
 }
 
 function displayStreetFighterScene() {
