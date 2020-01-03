@@ -1,7 +1,6 @@
 const headlinesGuardian = [];
 const URLsGuardian = [];
 const headlinesNYT = [];
-var searchTerm = $('#searchBar').val();
 
 
 
@@ -10,6 +9,7 @@ var searchTerm = $('#searchBar').val();
 
 function searchButton() {
     displayStreetFighterScene();
+    var searchTerm = $('#searchBar').val();
     searchGuardian(searchTerm);
     searchNYT(searchTerm);
     
@@ -58,7 +58,6 @@ function searchGuardian(searchTerm) {
 // Funtion to make AJAX call to New York Times
 
 function searchNYT(searchTerm) {
-
     let queryNYT = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + "&api-key=hecyDdGxE109y5e3hVzDPM4SnT9zYj30";
 
 
@@ -68,7 +67,9 @@ function searchNYT(searchTerm) {
     }).then(function (response) {
         for (i = 0; i < 10; i++) {
 
-            console.log('NYT: ' + response);
+            console.log('NYT: ', response[i]);
+            console.log(queryNYT);
+            // console.log('NYT: ' + response.headline);
         }
 
 
@@ -90,7 +91,7 @@ function populateResults() {
 
         //For Loop renders search results arrays by using headline as link title, URL as link source
 
-        $('#Guardian-Headlines').append('<p><a href=' + URLsGuardian[j] + '>' + headlinesGuardian[j] + '</a></p>');
+        $('#newsSource2').append('<p><a href=' + URLsGuardian[j] + '>' + headlinesGuardian[j] + '</a></p>');
 
 
     }
