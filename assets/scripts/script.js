@@ -2,14 +2,17 @@ const headlinesGuardian = [];
 const URLsGuardian = [];
 const headlinesNYT = [];
 var searchTerm = $('#searchBar').val();
+$('#street-fighter-gif').hide();
 
 
 
 // Search Button function that calls both AJAX functions
 
 function searchButton() {
+    displayStreetFighterScene();
     searchGuardian(searchTerm);
     searchNYT(searchTerm);
+    
 
 }
 
@@ -98,11 +101,15 @@ function populateResults() {
     // });
 }
 
+function displayStreetFighterScene() {
+    $('#street-fighter-gif').show();
 
+}
 
 
 // Function to ensure document is ready before calling functions, and event listener on search button
 
 $(document).ready(function () {
     $('#searchButton').click(searchButton);
+    $('#street-fighter-gif').hide();
 });
