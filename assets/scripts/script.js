@@ -2,7 +2,7 @@ const headlinesGuardian = [];
 const URLsGuardian = [];
 const headlinesNYT = [];
 var searchTerm = $('#searchBar').val();
-$('#street-fighter-gif').hide();
+
 
 
 
@@ -103,6 +103,9 @@ function populateResults() {
 
 function displayStreetFighterScene() {
     $('#street-fighter-gif').show();
+    setTimeout(function () {
+        $('#street-fighter-gif').hide();
+    }, 3000);
 
 }
 
