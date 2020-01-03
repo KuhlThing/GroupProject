@@ -88,7 +88,7 @@ function populateResults() {
 
         //For Loop renders search results arrays by using headline as link title, URL as link source
 
-        $('#Guardian-Headlines').append('<p><a href=' + URLsGuardian[j] + '>' + headlinesGuardian[j] + '</a></p>');
+        $('#newsSource2').append('<p><a href=' + URLsGuardian[j] + '>' + headlinesGuardian[j] + '</a></p>');
 
 
     }
