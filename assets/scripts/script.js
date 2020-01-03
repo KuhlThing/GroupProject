@@ -1,10 +1,16 @@
+let headlinesGuardian = [];
+let URLsGuardian = [];
+let headlinesNYT = [];
+let URLsNYT = [];
 
-// Defining variables
-
-const headlinesGuardian = [];
-const URLsGuardian = [];
-const headlinesNYT = [];
-const URLsNYT = [];
+function emptyDivAndArrays() {
+    $('#newsSource1').text("NYT Headlines");
+    $('#newsSource2').text("Guardian Headlines");
+    headlinesGuardian = [];
+    URLsGuardian = [];
+    headlinesNYT = [];
+    URLsNYT = [];
+}
 
 
 
@@ -13,9 +19,11 @@ const URLsNYT = [];
 function searchButton() {
     displayStreetFighterScene();
     var searchTerm = $('#searchBar').val();
-    setTimeout(searchGuardian(searchTerm), 1500);
-    setTimeout(searchNYT(searchTerm), 1500);
-}
+    searchGuardian(searchTerm);
+    searchNYT(searchTerm);
+    emptyDivAndArrays();
+    
+    
 
 
 
@@ -29,7 +37,7 @@ function searchGuardian(searchTerm) {
         url: queryURL,
         method: "GET"
     }).then(function (response) {
-
+        
         for (let i = 0; i < 10; i++) {
 
             // For Loop creates 10 results, each including the headline and the URL.
@@ -39,6 +47,7 @@ function searchGuardian(searchTerm) {
             URLsGuardian.push(response.response.results[i].webUrl);
         }
     });
+    
 }
 
 
@@ -52,6 +61,7 @@ function searchNYT(searchTerm) {
         url: queryNYT,
         method: "GET"
     }).then(function (response) {
+        
         for (i = 0; i < 10; i++) {
 
             // For Loop creates 10 results, including both headlines and URLs
@@ -88,11 +98,11 @@ function populateResults() {
 
         $('#newsSource1').append('<p><a href=' + URLsNYT[k] + '>' + headlinesNYT[k] + '</a></p>');
     }
+    
+    
 }
 
 
-
-// This function displays a scene from Street FIghter during search
 
 function displayStreetFighterScene() {
     $('#street-fighter-gif').show();
