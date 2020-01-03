@@ -4,12 +4,15 @@ const headlinesNYT = [];
 
 
 
+
 // Search Button function that calls both AJAX functions
 
 function searchButton() {
+    displayStreetFighterScene();
     var searchTerm = $('#searchBar').val();
-    searchGuardian(searchTerm);
-    searchNYT(searchTerm);
+    setTimeout(searchGuardian(searchTerm), 1500);
+    setTimeout(searchNYT(searchTerm), 1500);
+    
 
 }
 
@@ -99,11 +102,18 @@ function populateResults() {
     // });
 }
 
+function displayStreetFighterScene() {
+    $('#street-fighter-gif').show();
+    setTimeout(function () {
+        $('#street-fighter-gif').hide()
+    }, 500);
 
+}
 
 
 // Function to ensure document is ready before calling functions, and event listener on search button
 
 $(document).ready(function () {
     $('#searchButton').click(searchButton);
+    $('#street-fighter-gif').hide();
 });
