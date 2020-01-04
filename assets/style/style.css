@@ -2,12 +2,12 @@
     box-sizing: content-box;
     width: 100%;
 }
-
+/* line at the top of the page */
 #iRule {
     height:6px;
     width:100%;
 }
-
+/*formatting for the whole page and fonts on the page minus the page title*/
 body {
     background-color: gray;
     display: flex;
@@ -16,11 +16,11 @@ body {
     color: black;
     font-family: 'Aleo', serif;
 }
-
+/*sizing for the container that holds the page content*/
 .mainBootstrapContainer {
     height: 100%;
 }
-
+/*formatting for where the news results populate*/
 #newsSource1 {
     background: lightgray;
     opacity: .5;
@@ -35,13 +35,18 @@ body {
     border-radius: 10px;
 }
 
-
+/*formatting footer to make sticky*/
 footer {
     width: 100%;
     height: 60px;
     text-align: center;
     margin: auto !important;
     margin-bottom: 0 !important;
+}
+/*styling buttons to make corners rounded*/
+#searchButton {
+    border-radius: 5px;
+    
 }
 
 #newsButton1 {
@@ -55,13 +60,13 @@ footer {
     border-radius: 10px;
     
 }
-
+/* more styling on the footer*/
 .text-muted {
     display: inline;
     margin: auto;
 
 }
-
+/*font for website title*/
 #websiteName {
     font-family: 'Bungee Inline', cursive;
 }
